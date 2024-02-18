@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>cbs.queue.monitoring.api</name>
+    </assembly>
+    <members>
+        <member name="T:cbs.queue.monitoring.api.Controllers.API.Base.BaseController">
+            <summary>
+            BaseController
+            </summary>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.Base.BaseController.OkOrBadRequest(cbs.common.infrastructure.BrokenRules.BusinessResult)">
+            <summary>
+            OkOrBadRequest
+            </summary>
+            <param name="businessResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.Base.BaseController.OkOrNoResult(System.Object)">
+            <summary>
+            OkOrNoResult
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.Base.BaseController.CreatedOrNoResult(System.Object)">
+            <summary>
+            CreatedOrNoResult
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.Base.BaseController.CreateLinksFor(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.Guid,System.String)">
+            <summary>
+            CreateLinksFor
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="routeName"></param>
+            <param name="id"></param>
+            <param name="fields"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.Base.BaseController.CreateLinksForList(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,cbs.common.infrastructure.ResourceParameters.BaseResourceParameters,System.Boolean,System.Boolean)">
+            <summary>
+            CreateLinksForList
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="routeName"></param>
+            <param name="parameters"></param>
+            <param name="hasNext"></param>
+            <param name="hasPrevious"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.Base.BaseController.CreateResourceUri(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,cbs.common.infrastructure.ResourceParameters.BaseResourceParameters,cbs.common.infrastructure.Paging.ResourceUriType)">
+            <summary>
+            CreateResourceUri
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="routeName"></param>
+            <param name="parameters"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.Base.BaseController.CreateOkWithMetaData``1(cbs.common.infrastructure.Paging.PagedList{``0},System.String,cbs.common.infrastructure.ResourceParameters.BaseResourceParameters,Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.String)">
+            <summary>
+            CreateOkWithMetaData
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="pagedResponse"></param>
+            <param name="mediaType"></param>
+            <param name="parameters"></param>
+            <param name="urlHelper"></param>
+            <param name="routeNameForSingle"></param>
+            <param name="routeNameForList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cbs.queue.monitoring.api.Controllers.API.V1.MessagesController">
+            <summary>
+            Message Controller
+            </summary>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.V1.MessagesController.#ctor(MediatR.IMediator,Microsoft.AspNetCore.Mvc.IUrlHelper,cbs.common.infrastructure.TypeHelpers.ITypeHelperService,cbs.common.infrastructure.PropertyMappings.IPropertyMappingService)">
+            <summary>
+            ctor
+            </summary>
+            <param name="mediator"></param>
+            <param name="urlHelper"></param>
+            <param name="typeHelperService"></param>
+            <param name="propertyMappingService"></param>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.V1.MessagesController.FetchMessagesAsync(cbs.common.dtos.ResourceParameters.Messages.GetMessagesResourceParameters,System.String)">
+            <summary>
+            Get - Fetch all Messages
+            </summary>
+            <param name="parameters">Message parameters for fetching</param>
+            <param name="mediaType"></param>
+            <remarks>Fetch all Messages </remarks>
+            <response code="200">Resource retrieved correctly</response>
+            <response code="404">Resource Not Found</response>
+            <response code="500">Internal Server Error.</response>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.V1.MessagesController.GetMessageByIdAsync(System.String)">
+            <summary>
+            Get - Fetch one Message
+            </summary>
+            <param name="id">Message Id for fetching</param>
+            <remarks>Fetch one Message </remarks>
+            <response code="200">Resource retrieved correctly</response>
+            <response code="404">Resource Not Found</response>
+            <response code="500">Internal Server Error.</response>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.V1.MessagesController.CreateMessageAsync(cbs.common.dtos.ResourceParameters.Messages.CreateMessageResourceParameters)">
+            <summary>
+            Post - Create a Message
+            </summary>
+            <param name="MessageForCreationParameters">CreateMessageResourceParameters for creation</param>
+            <remarks>Create Message </remarks>
+            <response code="201">Resource Creation Finished</response>
+            <response code="404">Resource Not Found</response>
+            <response code="500">Internal Server Error.</response>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.V1.MessagesController.UpdateMessageAsync(System.String,cbs.common.dtos.ResourceParameters.Messages.UpdateMessageResourceParameters)">
+            <summary>
+            Put - Update a Message
+            </summary>
+            <param name="id">Message Id for modification</param>
+            <param name="request">UpdateMessageResourceParameters for modification</param>
+            <remarks>Update Message </remarks>
+            <response code="200">Resource Modification Finished</response>
+            <response code="404">Resource Not Found</response>
+            <response code="500">Internal Server Error.</response>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.API.V1.MessagesController.DeleteMessageAsync(System.String)">
+            <summary>
+            Delete - Remove an existing Message
+            </summary>
+            <param name="id">Message Id for deletion</param>
+            <remarks>Delete existing Message </remarks>
+            <response code="200">Resource Deletion Finished</response>
+            <response code="404">Resource Not Found</response>
+            <response code="500">Internal Server Error.</response>
+        </member>
+        <member name="T:cbs.queue.monitoring.api.Controllers.HomeController">
+            <summary>
+            HomeController
+            </summary>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Controllers.HomeController.Index">
+            <summary>
+            Index
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:cbs.queue.monitoring.api.Helpers.HttpGlobalExceptionFilter">
+            <summary>
+            Class : HttpGlobalExceptionFilter
+            </summary>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Helpers.HttpGlobalExceptionFilter.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Logging.ILogger{cbs.queue.monitoring.api.Helpers.HttpGlobalExceptionFilter})">
+            <summary>
+            Ctor : HttpGlobalExceptionFilter
+            </summary>
+            <param name="env"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Helpers.HttpGlobalExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Method : OnException
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:cbs.queue.monitoring.api.Helpers.InternalServerErrorObjectResult">
+            <summary>
+            Class : InternalServerErrorObjectResult
+            </summary>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Helpers.InternalServerErrorObjectResult.#ctor(System.Object)">
+            <summary>
+            Ctor : InternalServerErrorObjectResult
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:cbs.queue.monitoring.api.Helpers.PropertyMappingService">
+            <summary>
+            Class
+            </summary>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Helpers.PropertyMappingService.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="T:cbs.queue.monitoring.api.Program">
+            <summary>
+            Class : Program
+            </summary>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Program.CreateWebHostBuilder(Microsoft.Extensions.Configuration.IConfiguration,System.String[])">
+            <summary>
+            CreateWebHostBuilder
+            </summary>
+            <param name="configuration"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cbs.queue.monitoring.api.Startup">
+            <summary>
+            Startup class for configurations
+            </summary>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Startup ctor
+            </summary>
+            <param name="configuration"></param>
+            <param name="hostEnv"></param>
+        </member>
+        <member name="P:cbs.queue.monitoring.api.Startup.Configuration">
+            <summary>
+            IConfiguration
+            </summary>
+        </member>
+        <member name="P:cbs.queue.monitoring.api.Startup.HostEnv">
+            <summary>
+            IWebHostEnvironment
+            </summary>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:cbs.queue.monitoring.api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configure application builder
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>

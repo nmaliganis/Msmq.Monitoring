@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageId>cbs.queue.monitoring.model</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\common\cbs.common.infrastructure\cbs.common.infrastructure.csproj" />
+  </ItemGroup>
+
+
+
+</Project>
